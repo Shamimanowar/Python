@@ -5,9 +5,8 @@ class Node:
 
     def __repr__(self) -> str:
         return repr(self.data)
-    
 
-class LinkedList:
+class SinglyLinkedList:
     
     def __init__(self) -> None:
         self.head = Node()
@@ -40,6 +39,7 @@ class LinkedList:
             current_node = current_node.next
         
         current_node.next = node
+        return node
         
 
     def search(self, item):
@@ -52,7 +52,32 @@ class LinkedList:
         return None
     
     def remove(self, data):
-        pass
+        previous = self.head
+        current = self.head.next
 
-    def insert(self, data):
-        pass
+        if self.head.next is None:
+            return
+
+        while current is not None:
+            if current.data == data:
+                previous.next = current.next
+                return current.data
+            previous = current
+            current = current.next
+        
+        return "Not Found"
+
+
+    def insert(self, data, new_item): # The new node should be placed after the data
+        node = Node(new_item)
+        current_node = self.head.next
+
+        while current_node:
+            if current_node.data == data:
+                node.next = current_node.next
+                current_node.next = node
+                return node
+            
+            current_node = current_node.next
+
+        return "{} Not Found".format(data)
