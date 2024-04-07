@@ -19,8 +19,8 @@ def bubble_sort(li):
 
 
 if __name__ == "__main__":
-    # L = [5, 3, 9, 1, 4, 0, 8]
-    L = [0, 1, 3, 4, 5, 8, 9]
+    L = [5, 3, 9, 1, 4, 0, 8]
+    # L = [0, 1, 3, 4, 5, 8, 9]
     print("Before sort: ", L)
     bubble_sort(L)
     print("After sort: ", L)
